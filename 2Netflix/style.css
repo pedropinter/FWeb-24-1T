@@ -1,0 +1,21 @@
+body{
+    background-color: black;
+}
+h1{
+    color: black;
+    font-weight: bold;
+    text-shadow: 
+    -1px -1px 0 #D32F2F,
+     1px -1px 0 #D32F2F,
+    -1px  1px 0 #D32F2F,
+     1px  1px 0 #D32F2F;
+}
+.btn-danger-custom {
+    background-color: #D32F2F;
+    color: black;
+    border: none;
+}
+.btn-danger-custom:hover {
+    background-color: #b71c1c;
+    color: black;
+}
