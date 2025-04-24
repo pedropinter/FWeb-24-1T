@@ -28,6 +28,7 @@ body {
 /* Declare heights because of positioning of img element */
 .carousel-item {
   height: 32rem;
+  /*width: 90rem;*/
 }
 .carousel-item img {
   display: block;
