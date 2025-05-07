@@ -26,7 +26,12 @@ figure{
     bottom: 30%;
     left: 30%;
 }
-#info{
+#info1{
+    position: relative;
+    bottom: 25%;
+    left: 30%;
+}
+#info2{
     position: relative;
     bottom: 25%;
     left: 30%;
