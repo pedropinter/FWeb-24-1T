@@ -25,16 +25,36 @@ const fetchPokemon = async(pokemon)=>{
 const showPokemon = async(pokemon) =>{
     const dataPokemon = await fetchPokemon(pokemon);
     imgPK.src = dataPokemon.sprites.front_default;
-    idPK.innerHTML = dataPokemon.id;
-    nomePK.innerHTML = dataPokemon.name;
-    tipo1.innerHTML = dataPokemon.types[0].type.name;
-    tipo2.innerHTML = dataPokemon.types[1].type.name;
-    habiPK.innerHTML = dataPokemon.abilities[0].ability.name;
-    pesoPK.innerHTML = dataPokemon.weight;
-    alturaPK.innerHTML = dataPokemon.height;
+    idPK.innerHTML = `ID: ${dataPokemon.id}`;
+    nomePK.innerHTML = `Nome: ${dataPokemon.name}`;
+    tipo1.innerHTML = `Tipo: ${dataPokemon.types[0].type.name}`;
+    if(
+        dataPokemon.types[1] != undefined
+    ){
+    tipo2.innerHTML = dataPokemon.types[1].type.name;}
+    else{
+        tipo2.innerHTML = ""
+    }
+    habiPK.innerHTML = `Habilidade: ${dataPokemon.abilities[0].ability.name}`;
+    pesoPK.innerHTML = `Peso: ${dataPokemon.weight/10}KG`;
+    alturaPK.innerHTML = `Altura: ${dataPokemon.height/10}m`;
+    const audio = new Audio(dataPokemon.cries.latest);
+    audio.play();
 }
 formPK.addEventListener("submit",(event)=>{
     event.preventDefault();
     showPokemon(inputPK.value.toLowerCase());
+})
+btnVoltar.addEventListener("click",(event)=>{
+    if(numeroPokedex>1){
+        numeroPokedex = numeroPokedex-1
+    }
+    showPokemon(numeroPokedex);
+})
+btnProximo.addEventListener("click",(event)=>{
+    if(numeroPokedex<1025){
+        numeroPokedex = numeroPokedex+1
+    }
+    showPokemon(numeroPokedex);
 })
 showPokemon(numeroPokedex);
